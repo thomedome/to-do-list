@@ -18,6 +18,21 @@
                     xml.send();
                 }
             }
+
+            function createEntry(str) {
+                if (str == "") {
+                    return;
+                } else {
+                    let xml = new XMLHttpRequest();
+                    xml.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("warningsText").innerHTML = this.responseText;
+                        }
+                    }
+                    xml.open("GET", "add.php?q=" + str, true);
+                    xml.send();
+                }
+            }
         </script>
 
     </head>
@@ -25,7 +40,13 @@
         <br><br><br>
         <h1 id="title" class="text-center">To-Do List</h1>
         <h4 class="text-center">by thomedome</h4>
-        <br><br>
+        <br>
+        <p id="warningsText"></p>
+        <br>
         <div id="listEntries"></div>
+
+        <input type="text" id="createText">
+        <br>
+        <input type="submit" onclick="createEntry(document.getElementById('createText').innerText)">
     </body>
 </html>
