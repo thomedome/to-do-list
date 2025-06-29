@@ -7,8 +7,10 @@ $q = cleanseData($_GET['q']);
 if ($q == "") {
     echo "you cant make an empty entry >:(";
 } else {
-    $sql = $con->prepare("INSERT INTO toDoList VALUES(?)");
+    $sql = $con->prepare("INSERT INTO toDoList (item) VALUES (?)");
     $sql->bind_param('s', $q);
-    echo "test";
+    $sql->execute();
+    echo "Added " . $q . " as a task.";
 }
+  $con->close();
 ?>

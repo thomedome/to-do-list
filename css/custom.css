@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(68, 68, 68) !important;
+    color: white !important;
+    overflow-x: hidden;
+}
+
+#searchTextBox {
+    margin-left: 45%;
+    width: 10%;
+}
+
+tbody {
+    text-align: center !important;
+}
+
+th {
+    margin-right: 15% !important; 
+}
